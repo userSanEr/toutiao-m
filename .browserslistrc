@@ -1,3 +1,14 @@
-> 1%
-last 2 versions
-not dead
+# 用来指定目标浏览器的范围
+# 这个值会被@babel/preset-env和Autoprefixer用来确定需要转译的javascript特性和需要添加的css浏览器前缀
+# 参考链接：https://github.com/browserslist/browserslist
+
+# 兼容到超过1%的用户在使用的浏览器
+# > 1%
+
+# 兼容到最后的两个版本
+# last 2 versions
+
+# not dead
+
+Android >= 4.0
+iOS >= 8
