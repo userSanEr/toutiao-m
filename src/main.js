@@ -9,6 +9,9 @@ import 'amfe-flexible'
 // 加载全局样式
 import './styles/index.less'
 
+// 全局引入时间处理包
+import '@/utils/dayjs'
+
 Vue.config.productionTip = false
 
 new Vue({

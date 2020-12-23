@@ -6,8 +6,28 @@ import axios from 'axios'
  */
 import store from '@/store'
 
+//
+import JSONbig from 'json-bigint'
+
 const request = axios.create({
-  baseURL: 'http://ttapi.research.itcast.cn/'
+  baseURL: 'http://ttapi.research.itcast.cn/',
+  // transformResponse 允许自定义原始的响应数据（字符串）
+  /**
+   * 后端返回的数据可能不是json格式字符串
+   * 如果不是直接使用jsonBig.parse就会报错
+   * 所以需要使用try catch来处理异常
+   */
+  transformResponse: [function (data) {
+    try {
+      // 如果转换成功则返回转换的数据结果
+      return JSONbig.parse(data)
+    } catch (err) {
+      // 如果转换失败，则包装为统一数据格式并返回
+      return {
+        data
+      }
+    }
+  }]
 })
 
 // 请求拦截器
